@@ -1,0 +1,7 @@
+<p>Price: $ <%= @car.price %></p>
+<p>License: <%= @car.license %></p>
+<% if @car.age == 1%>
+  <p>Number of years used: <%= @car.age %> year</p>
+<% else %>
+  <p>Number of years used: <%= @car.age %> years</p>
+<% end %>

@@ -1,0 +1,12 @@
+<h1>Welcome to Car Service </h1>
+
+<hr>
+
+<% if user_signed_in? %>
+  <p>Click <%= link_to 'here', cars_path %> to start viewing all available cars</p>
+<% else %>
+  <p>We provide rental services for car sharing.</p>
+  <p>Login/Signup to begin car sharing</p>
+<% end %>
+
+

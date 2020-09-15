@@ -1,0 +1,10 @@
+<h1>Available Cars</h1>
+
+<hr>
+
+<% @cars.each do |car| %>
+  <p><%= link_to "#{car.model}", car_path(car) %></p>
+<% end %>
+
+<hr>
+<%= link_to 'Home', '/' %>

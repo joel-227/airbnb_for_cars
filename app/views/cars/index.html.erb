@@ -1,10 +1,24 @@
 <h1>Available Cars</h1>
 
-<hr>
 
-<% @cars.each do |car| %>
-  <p><%= link_to "#{car.model}", car_path(car) %></p>
-<% end %>
 
-<hr>
+<div class="container">
+  <div class="row">
+   <% @cars.each do |car| %>
+    <div class="col-sm-3 mx-3">
+      <div class="card mb-5" style="width: 18rem;">
+      <img src="https://loremflickr.com/cache/resized/8341_8271068617_8d9693df86_300_300_nofilter.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"> <%= car.model %></h5>
+        <p class="card-text"> age: <%= car.age %></p>
+        <p class="card-text"> license number: <%= car.license %></p>
+      </div>
+    </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
 <%= link_to 'Home', '/' %>
+
+S

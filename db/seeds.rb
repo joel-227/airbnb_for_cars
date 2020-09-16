@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Car.destroy_all
 User.destroy_all
-
+# <img src="http://loremflickr.com/300/300/${car.brand}%20${car.model}" />
 user_one = User.create!(email: "joelkoh2012@gmail.com", password: "123123")
 user_two = User.create!(email: "mark@gmail.com", password: "456456")
 Car.create!(user: user_one, price: 999.99, model: "Toyota", license: "90F", age: 3, image_url: "https://4.bp.blogspot.com/-22CG2b6jZ3g/T8YhYn1poXI/AAAAAAAAAH8/tdStjO5zaMI/s200/Chevrolet%2BCruze.jpg")

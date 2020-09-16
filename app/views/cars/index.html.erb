@@ -8,7 +8,9 @@
    <% @cars.each do |car| %>
     <div class="col-sm-3 mx-3">
       <div class="card mb-5" style="width: 18rem;">
-      <img src=<%= car.image_url %>  class="card-img-top card-image" alt="...">
+      <%= link_to car_path(car) do %>
+        <%= image_tag car.image_url, class: "card-img-top card-image" %>
+      <% end %>
       <div class="card-body">
         <h5 class="card-title"> <%= car.model %></h5>
         <p class="card-text"> age: <%= car.age %></p>

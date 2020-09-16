@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   def new
     @car = Car.find(params[:car_id])
-    booking_check = Booking.all.filter { |booking| booking.user == current_user}
+    booking_check = Booking.all.filter { |booking| booking.user == current_user && booking.car == @car }
     if booking_check == []
       @booking = Booking.new
       @car = Car.find(params[:car_id])

@@ -2,7 +2,22 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :car
   
-  validates :start_time, presence: true
-  validates :end_time, presence: true
+  validates :start_time, :end_time, presence: true
   
+  validate :end_time_after_start_time
+  validate :start_time_after_today
+
+  private
+
+  def start_time_after_today
+    if start_time < Date.today
+      errors.add(:start_time, "must be after today")
+    end
+  end
+
+  def end_time_after_start_time
+    if end_time < start_time
+      errors.add(:end_time, "must be after the start date")
+    end
+  end
 end

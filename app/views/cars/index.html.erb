@@ -1,28 +1,26 @@
-<div class="container" style="width: 400px; margin: 10px 0;">
-  <h1>Available Cars</h1>
-</div>
-
-
-<div class="container">
-  <div class="row">
-  <!-- <% cars_by_price = @cars.sort_by { |car| car.price } %> -->
-  <!-- <div class="container btn btn-secondary">Sort by price</div> -->
-   <% @cars.each do |car| %>
-    <div class="col-sm-3 mx-3">
-      <div class="card mb-5" style="width: 18rem;">
-      <%= link_to car_path(car) do %>
-        <%= image_tag car.image_url, class: "card-img-top card-image" %>
+<div id="wrapper">
+  <div class="container" style="width: 400px; margin: 20px 0;">
+    <h1>Available Cars</h1>
+  </div>
+  <hr>
+  <div class="container">
+    <div class="row">
+    <!-- <% cars_by_price = @cars.sort_by { |car| car.price } %> -->
+    <!-- <div class="container btn btn-secondary">Sort by price</div> -->
+    <% @cars.each do |car| %>
+        <div class="col-sm-3 mx-3">
+          <div class="card mb-5" style="width: 18rem;">
+            <%= link_to car_path(car) do %>
+              <%= image_tag car.image_url, class: "card-img-top card-image" %>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"> <%= car.model %></h5>
+              <p class="card-text"> <%= car.age %> years old</p>
+              <p class="card-text"> $ <%= car.price %></p>
+            </div>
+          </div>
+        </div>
       <% end %>
-      <div class="card-body">
-        <h5 class="card-title"> <%= car.model %></h5>
-        <p class="card-text"> <%= car.age %> years old</p>
-        <p class="card-text"> $ <%= car.price %></p>
-      </div>
     </div>
-    </div>
-    <% end %>
   </div>
 </div>
-
-<%= link_to 'Home', '/' %>
-

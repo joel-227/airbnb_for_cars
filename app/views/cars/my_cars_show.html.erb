@@ -1,8 +1,11 @@
-<h1><%= @car.model %></h1>
+<div id="wrapper">
+  <h1><%= @car.model %></h1>
+  <img src=<%= @car.image_url %> alt="" style="width: 100%">
 
-<hr>
+  <hr>
 
-<%= render "car_info" %>
+  <%= render "car_info" %>
 
-<hr>
-<%= link_to 'Back', my_cars_path %>
+  <hr>
+  <%= link_to 'Back', my_cars_path %>
+</div>

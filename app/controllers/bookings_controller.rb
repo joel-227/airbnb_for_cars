@@ -26,11 +26,15 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @car = @booking.car
-    if @booking.user == current_user
+    if @booking.car.user == current_user
       @booking.destroy
+      redirect_to my_car_path(@car)
+    elsif @booking.user == current_user
+      @booking.destroy
+      redirect_to car_path(@car)
+    else
+      redirect_to car_path(@car)
     end
-
-    redirect_to car_path(@car)
   end
 
   private

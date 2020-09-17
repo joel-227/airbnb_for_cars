@@ -7,5 +7,9 @@
   <%= render "car_info" %>
 
   <hr>
+  <h3>My Bookings</h3>
+  <% @car.bookings.each do |booking| %>
+    <p><%="#{booking.start_time} to #{booking.end_time} | Requested by #{booking.user.email} | " %><%= link_to 'Delete', car_booking_path(@car, booking), method: :delete, data: {confirm: "You will lose this customer!"} %></p>
+  <% end %>
   <%= link_to 'Back', my_cars_path %>
 </div>

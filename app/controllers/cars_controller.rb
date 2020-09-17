@@ -33,11 +33,15 @@ class CarsController < ApplicationController
 
   def show
     @car = Car.find(params[:id])
-    @bookings = Booking.all.filter { |booking| booking.car == @car }
-    @bookings.each do |booking|
-      if booking.user == current_user
-        @current_user_has_booked = true
-        break
+    if @car.user == current_user
+      redirect_to my_car_path(@car)
+    else
+      @bookings = Booking.all.filter { |booking| booking.car == @car }
+      @bookings.each do |booking|
+        if booking.user == current_user
+          @current_user_has_booked = true
+          break
+        end
       end
     end
   end

@@ -13,8 +13,9 @@
 
 <hr>
 <h3>Bookings</h3>
+
 <% @bookings.each_with_index do |booking, index| %>
-  <p><%= "#{index + 1}. #{booking.start_time} to #{booking.end_time} | requested by #{booking.user.email} " %><%= link_to 'delete', car_booking_path(@car, booking), method: :delete if booking.user == current_user %></p>
+  <p><%= "#{index + 1}. #{booking.start_time} to #{booking.end_time} | requested by #{booking.user.email} " %><%= link_to 'delete', car_booking_path(@car, booking), method: :delete, data: { confirm: "You won't be able to undo this action!"} if booking.user == current_user %></p>
   
 <% end %>
 <hr>

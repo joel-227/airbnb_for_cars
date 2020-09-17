@@ -5,6 +5,8 @@
 
 <div class="container">
   <div class="row">
+  <!-- <% cars_by_price = @cars.sort_by { |car| car.price } %> -->
+  <!-- <div class="container btn btn-secondary">Sort by price</div> -->
    <% @cars.each do |car| %>
     <div class="col-sm-3 mx-3">
       <div class="card mb-5" style="width: 18rem;">
@@ -13,8 +15,8 @@
       <% end %>
       <div class="card-body">
         <h5 class="card-title"> <%= car.model %></h5>
-        <p class="card-text"> age: <%= car.age %></p>
-        <p class="card-text"> license number: <%= car.license %></p>
+        <p class="card-text"> <%= car.age %> years old</p>
+        <p class="card-text"> $ <%= car.price %></p>
       </div>
     </div>
     </div>

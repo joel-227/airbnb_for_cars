@@ -21,7 +21,7 @@
     <div class="row d-flex justify-content-around">
     <!-- <% cars_by_price = @cars.sort_by { |car| car.price } %> -->
     <!-- <div class="container btn btn-secondary">Sort by price</div> -->
-    <% @cars.each do |car| %>
+    <% @cars_age_asc.each do |car| %>
         <div class="col-sm-3 mx-3">
           <div class="card mb-5" style="width: 18rem;">
             <%= link_to car_path(car) do %>

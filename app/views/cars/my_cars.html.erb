@@ -11,12 +11,12 @@
 </div>
 -->
 <div id="wrapper">
-  <div class="container" style="width: 400px; margin: 20px 0;">
+  <div class="container" style="width: 400px; margin: 20px auto;">
     <h1>My Cars</h1>
   </div>
   <hr>
   <div class="container">
-    <div class="row">
+    <div class="row d-flex justify-content-around">
     <!-- <% cars_by_price = @cars.sort_by { |car| car.price } %> -->
     <!-- <div class="container btn btn-secondary">Sort by price</div> -->
     <% @cars.each do |car| %>
@@ -28,8 +28,8 @@
             <div class="card-body">
               <h5 class="card-title"> <%= car.model %></h5>
               <div>
-                <span class="card-text"> <%= car.age %> years old</span>
-                <span class="card-text" style="float: right;"> $ <%= car.price %></span>
+                <span class="card-text"> <%= car.age %> <%= car.age == 1 ? "year" : "years" %> old</span>
+                <span class="card-text" style="float: right; font-weight: bold;"> $ <%= car.price %></span>
               </div>
               <div>
                 <span class="card-text"><%= link_to 'edit', edit_car_path(car) %></span>

@@ -5,6 +5,32 @@ class CarsController < ApplicationController
     @cars = Car.all.reject { |car| car.user == current_user }
   end
 
+  def price_asc
+    @user = current_user
+    @cars = Car.all.reject { |car| car.user == current_user }
+    @cars_price_asc = @cars.sort_by { |car| car.price }
+  end
+
+  def price_des
+    @user = current_user
+    @cars = Car.all.reject { |car| car.user == current_user }
+    result = @cars.sort_by { |car| car.price }
+    @cars_price_des = result.reverse
+  end
+
+  def age_asc
+    @user = current_user
+    @cars = Car.all.reject { |car| car.user == current_user }
+    @cars_age_asc = @cars.sort_by { |car| car.age }
+  end
+
+  def age_des
+    @user = current_user
+    @cars = Car.all.reject { |car| car.user == current_user }
+    result = @cars.sort_by { |car| car.age }
+    @cars_age_des = result.reverse
+  end
+
   def show
     @car = Car.find(params[:id])
     @bookings = Booking.all.filter { |booking| booking.car == @car }

@@ -20,17 +20,21 @@
     <!-- <% cars_by_price = @cars.sort_by { |car| car.price } %> -->
     <!-- <div class="container btn btn-secondary">Sort by price</div> -->
     <% @cars.each do |car| %>
-        <div class="col-sm-3 mx-3">
-          <div class="card mb-5" style="width: 18rem;">
+        <div class="col-md-3 mx-3">
+          <div class="card mb-5" style="width: 18rem; box-shadow: 1px 1px 8px #00000030;">
             <%= link_to my_car_path(car) do %>
               <%= image_tag car.image_url, class: "card-img-top card-image" %>
             <% end %>
             <div class="card-body">
               <h5 class="card-title"> <%= car.model %></h5>
-              <p class="card-text"> <%= car.age %> years old</p>
-              <p class="card-text"> $ <%= car.price %></p>
-              <span class="card-text"><%= link_to 'edit', edit_car_path(car) %></span>
-              <span class="card-text" style="float: right;"><%= link_to 'delete', car_path(car), method: :delete, data: {confirm: "This will delete #{car.model}!"} %></span>
+              <div>
+                <span class="card-text"> <%= car.age %> years old</span>
+                <span class="card-text" style="float: right;"> $ <%= car.price %></span>
+              </div>
+              <div>
+                <span class="card-text"><%= link_to 'edit', edit_car_path(car) %></span>
+                <span class="card-text" style="float: right;"><%= link_to 'delete', car_path(car), method: :delete, data: {confirm: "This will delete #{car.model}!"} %></span>
+              </div>
             </div>
           </div>
         </div>

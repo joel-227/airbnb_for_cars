@@ -1,24 +1,33 @@
 <div id="wrapper">
-  <h1><%= @car.model %></h1>
-  <h3>by <%= @car.user.email %></h3>
-  <img src=<%= @car.image_url %> alt="" style="width: 100%">
+  <div class="container d-flex justify-content-start ml-0">
+    <img src=<%= @car.image_url %> alt="" style="width: 50%; border-radius: 8px; box-shadow: 1px 1px 8px #00000080">
+    <div class="ml-5">
+      <h1><%= @car.model %></h1>
+      <p style="font-size: 50px; font-weight: bold;">$ <%= @car.price %></p>
+      <p style="font-size: 16px; margin-bottom: 30px"><%= @car.age == 1 ? "#{@car.age} year old" : "#{@car.age} years old" %></p>
+      <% unless @current_user_has_booked %>
+        <a href=<%= new_car_booking_path(@car) %> class="btn btn-secondary">Request Booking</a>
+        <%#= link_to 'Request booking', new_car_booking_path(@car) %>
+      <% end %>
+      <h3 class="mt-3" style="font-size: 20px">by <%= @car.user.email %></h3>
+    </div>
+  </div>
+
+  <%#= render "car_info" %>
+
   <hr>
+  <h3 style="font-weight: bold;">Bookings</h3>
+  <% @bookings.each do |booking| %>
+    <div class="card p-3 mt-3" style="position: relative;">
+      <div>
+        <p class="mb-0" style="font-weight: bold; font-size: 20px"><%= "#{booking.start_time} to #{booking.end_time}" %></p>
+        <p class="mb-0" style="font-weight: light; font-size: 16px"><%= "#{booking.user.email}" %></p>
+      </div>
+      <a href=""></a>
 
-  <%= render "car_info" %>
-
-
-  <% unless @current_user_has_booked %>
-    <%= link_to 'Request booking', new_car_booking_path(@car) %>
+      <div style="position: absolute; top: 8px; right: 12px">
+        <%= link_to image_tag('https://icons-for-free.com/iconfiles/png/24/delete+remove+trash+trash+bin+trash+can+icon-1320073117929397588.png'), car_booking_path(@car, booking), method: :delete, data: { confirm: "You won't be able to undo this action!"} if booking.user == current_user %>
+      </div>
+    </div>
   <% end %>
-
-
-  <hr>
-  <h3>Bookings</h3>
-
-  <% @bookings.each_with_index do |booking, index| %>
-    <p><%= "#{index + 1}. #{booking.start_time} to #{booking.end_time} | requested by #{booking.user.email} " %><%= link_to 'delete', car_booking_path(@car, booking), method: :delete, data: { confirm: "You won't be able to undo this action!"} if booking.user == current_user %></p>
-    
-  <% end %>
-  <hr>
-  <%= link_to 'Back', cars_path %>
 </div>

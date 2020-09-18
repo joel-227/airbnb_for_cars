@@ -23,7 +23,7 @@
     <!-- <div class="container btn btn-secondary">Sort by price</div> -->
     <% @cars.each do |car| %>
         <div class="col-sm-3 mx-3">
-          <div class="card mb-5" style="width: 18rem;">
+          <div class="card mb-5" style="width: 16rem;">
             <%= link_to car_path(car) do %>
               <%= image_tag car.image_url, class: "card-img-top card-image" %>
             <% end %>

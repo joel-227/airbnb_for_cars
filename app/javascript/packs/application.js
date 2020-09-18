@@ -29,9 +29,11 @@ import flatpickr from "flatpickr";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import getAvailableDates from '../components/booking_dates'
+import justTesting from '../components/test'
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   getAvailableDates();
+  justTesting();
 });

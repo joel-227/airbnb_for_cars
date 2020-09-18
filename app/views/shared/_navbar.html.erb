@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="background-color: #37000afa; position: fixed; width: 100%; z-index: 9999;">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="background-color: #882D30fa; position: fixed; width: 100%; z-index: 9999;">
   <%= link_to "#", class: "navbar-brand" do %>
     <%= image_tag "" %>
     <% end %>
@@ -13,11 +13,14 @@
         <li class="nav-item active">
           <%= link_to "Home", "/", class: "nav-link", style:"color: #d0d0d0;" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "View My Cars", my_cars_path, class: "nav-link", style:"color: #d0d0d0;" %>
+        <li class="nav-item active">
+          <%= link_to "Browse", cars_path, class: "nav-link", style:"color: #d0d0d0;" %>
         </li>
         <li class="nav-item">
-          <%= link_to "List a car", new_car_path, class: "nav-link", style:"color: #d0d0d0;" %>
+          <%= link_to "My Cars", my_cars_path, class: "nav-link", style:"color: #d0d0d0;" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "List car", new_car_path, class: "nav-link", style:"color: #d0d0d0;" %>
         </li>
       <% end %>
     </ul>

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'users#home'
+  get 'cars/price_asc', to: "cars#price_asc"
+  get 'cars/price_des', to: "cars#price_des"
+  get 'cars/age_asc', to: "cars#age_asc"
+  get 'cars/age_des', to: "cars#age_des"
   resources :cars do
     resources :bookings
   end

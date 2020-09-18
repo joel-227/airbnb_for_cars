@@ -1,10 +1,11 @@
 .banner {
   font-weight: 500;
+  background-image: url(https://i.imgur.com/ai5gQDl.jpg);
   width: 100%;
-  background-image: url(https://d5qsyj6vaeh11.cloudfront.net/images/about%20ireland/vehicle%20rental/mm-vehicle-rental-car-bg.jpg);
-  height: 100%;
-  background-position: right;
+  height: 80vh;
+  background-position: center;
   color: #d0d0d0;
+  background-size: cover;
   font-size: 160px;
   text-align: center;
   text-shadow: 1px 4px 12px black;
@@ -14,16 +15,23 @@
   text-shadow: none;
   position: relative;
   top: -88px;
-  font-size: 28px;
+  font-size: 42px;
+  background-color: #882D30;
+  border: 0;
+  box-shadow: 1px 1px 8px black;
 }
 .info-page {
   font-family: 'Roboto Slab', serif;
   width: 100%;
-  background-color: #00242a;
+  background-color: #204557;
   height: 405px;
   background-position: right;
   color: #d0d0d0;
   font-size: 40px;
   text-align: center;
-  padding: 40px 0 0 0;
+  padding: 100px 0 0 0;
+}
+
+#explore {
+  padding: 480px 0 68px 0;
 }
